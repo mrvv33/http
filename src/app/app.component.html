@@ -5,4 +5,13 @@
 <p>completed:{{user2?.completed}}</p>
 
 <div *ngFor="let post of postList">id:{{post.id}} userId:{{post.userId}} title:{{post.id}} body:{{post.body}}</div>
+<div *ngIf="isLoadingShow"> 
+    <div class="d-flex align-items-center">
+    <strong role="status">Loading...</strong>
+    <div class="spinner-border ms-auto" aria-hidden="true"></div>
+  </div>
+</div>
+<hr>
+<app-ornek></app-ornek>
+
 <router-outlet></router-outlet>

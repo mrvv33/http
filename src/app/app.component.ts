@@ -13,11 +13,16 @@ import { JsonplaceholderService } from './services/jsonplaceholder.service';
 export class AppComponent  implements OnInit{ 
    title = 'http'; 
    postList:Post[]=[];
+   isLoadingShow:boolean=true;
    user:User|undefined;
    user2:User2|undefined;
    constructor(private jsonPlaceHolderService:JsonplaceholderService){}
   ngOnInit(): void {
-    this.jsonPlaceHolderService.getPostList().subscribe(x=>this.postList=x);
+    this.jsonPlaceHolderService.getPostList(1,10).subscribe(x=>{
+      this.postList=x;
+      this.isLoadingShow=false;
+  
+  });
     
   }
  
